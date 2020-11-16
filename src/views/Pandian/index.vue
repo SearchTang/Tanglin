@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="入库管理"></Header>
+    <Header fuchuanzi="盘点管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -19,21 +19,21 @@
             </div>
           </div>
           <div class="shi1">
-            <div class="shi1-2"><span>单据类型:</span></div>
+            <div class="shi1-2"><span>起初时间:</span></div>
             <div class="shi1-1">
-              <el-select v-model="value" placeholder="请选择">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                >
-                </el-option>
-              </el-select>
+              <el-time-select
+    placeholder="起始时间"
+    v-model="startTime"
+    :picker-options="{
+      start: '08:30',
+      step: '00:15',
+      end: '18:30'
+    }">
+  </el-time-select>
             </div>
           </div>
 
-          <div class="shi1">
+          <div class="shi1 shi2">
             <div class="shi1-2"><span>入库状态:</span></div>
             <div class="shi1-1">
               <el-select v-model="value1" placeholder="请选择">
@@ -58,14 +58,14 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzheng" tag="span" class="yi">
+              <router-link to="../Xingzhengpandian" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
                   >新增</el-button
                 >
               </router-link>
 
-              <router-link to="../Bianyi" tag="span" class="yi">
+              <router-link to="../Bianyipandian" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
                   >编译</el-button
@@ -141,7 +141,7 @@
             </el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip>
                <Chakan></Chakan>
-                <router-link to="../Bianyi" tag="span"
+                <router-link to="../Bianyipandian" tag="span"
                   ><el-button type="text" size="small"
                     ><i class="el-icon-edit"></i>编辑</el-button
                   ></router-link
@@ -190,6 +190,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
+    name:'Pandian',
   components: {
     Header,
     Gaojishous,
@@ -198,6 +199,7 @@ export default {
   data() {
     return {
       input: "",
+       startTime: '',
       centerDialogVisible: false,
       options: [
         {
@@ -377,6 +379,7 @@ export default {
 };
 </script>
 <style scoped>
+
 .yi {
   margin-right: 10px;
 }
@@ -416,6 +419,9 @@ export default {
 .shi1-1 {
   width: 70%;
   float: left;
+}
+.shi2{
+      margin-left: 65px;
 }
 .shangban {
   width: 100%;

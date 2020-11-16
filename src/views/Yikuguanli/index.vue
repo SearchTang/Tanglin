@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="入库管理"></Header>
+    <Header fuchuanzi="移库管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,7 +13,7 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>入库单号:</span></div>
+            <div class="shi1-2"><span>出库单号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
@@ -34,7 +34,7 @@
           </div>
 
           <div class="shi1">
-            <div class="shi1-2"><span>入库状态:</span></div>
+            <div class="shi1-2"><span>出库状态:</span></div>
             <div class="shi1-1">
               <el-select v-model="value1" placeholder="请选择">
                 <el-option
@@ -58,14 +58,14 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzheng" tag="span" class="yi">
+              <router-link to="../Xingzhengchuku" tag="span" class="yi">                                   
                 <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
                   >新增</el-button
                 >
               </router-link>
 
-              <router-link to="../Bianyi" tag="span" class="yi">
+              <router-link to="../Bianyichuku" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
                   >编译</el-button
@@ -141,7 +141,7 @@
             </el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip>
                <Chakan></Chakan>
-                <router-link to="../Bianyi" tag="span"
+                <router-link to="../Bianyichuku" tag="span"
                   ><el-button type="text" size="small"
                     ><i class="el-icon-edit"></i>编辑</el-button
                   ></router-link
@@ -190,6 +190,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
+    name:'chukuguanli',
   components: {
     Header,
     Gaojishous,
@@ -226,106 +227,100 @@ export default {
       tableData: [
         {
           chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
           date: "2016-05-03",
-          name: "王小虎",
+          name: "刘晓雯",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
           chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-02",
-          name: "王小虎",
+          date: "2016-05-03",
+          name: "刘晓雯",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+         chanpin: "设备箱",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          date: "2016-05-03",
+          name: "刘晓雯",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+         chanpin: "设备箱",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          date: "2016-05-03",
+          name: "刘晓雯",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+        chanpin: "设备箱",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          date: "2016-05-03",
+          name: "刘晓雯",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
           chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-04",
-          name: "王小虎",
+          date: "2016-05-03",
+          name: "刘晓雯",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
           chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
+          dindan: "OS_0001",
+          chanpinbianhao: "000179",
+          pinsi: "20190518",
+          gueige: "个",
+          can: "121",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-08",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-06",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-07",
-          name: "王小虎",
+          date: "2016-05-03",
+          name: "刘晓雯",
           address: "上海市普陀区金沙江路 1518 弄",
         },
       ],

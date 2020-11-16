@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="入库管理"></Header>
+    <Header fuchuanzi="仓库台账"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,13 +13,13 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>入库单号:</span></div>
+            <div class="shi1-2"><span>产品编号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
           </div>
           <div class="shi1">
-            <div class="shi1-2"><span>单据类型:</span></div>
+            <div class="shi1-2"><span>产品名称:</span></div>
             <div class="shi1-1">
               <el-select v-model="value" placeholder="请选择">
                 <el-option
@@ -34,7 +34,7 @@
           </div>
 
           <div class="shi1">
-            <div class="shi1-2"><span>入库状态:</span></div>
+            <div class="shi1-2"><span>产品批次:</span></div>
             <div class="shi1-1">
               <el-select v-model="value1" placeholder="请选择">
                 <el-option
@@ -58,51 +58,9 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzheng" tag="span" class="yi">
-                <el-button plain
-                  ><i class="el-icon-plus" style="font-weight: 900"></i
-                  >新增</el-button
-                >
-              </router-link>
+          
 
-              <router-link to="../Bianyi" tag="span" class="yi">
-                <el-button plain
-                  ><i class="el-icon-edit" style="font-weight: 900"></i
-                  >编译</el-button
-                >
-              </router-link>
-
-              <el-button plain @click="centerDialogVisible = true"
-                ><i class="el-icon-delete-solid" style="font-weight: 900"></i
-                >删除</el-button
-              >
-
-              <el-dialog
-                title="确定删除"
-                :visible.sync="centerDialogVisible"
-                width="30%"
-                left
-              >
-                <img src="../../assets/登入img/tubiao.png" />
-                <span class="daxiao"
-                  >该操作将删除该订单所有数据,确定要删除吗？</span
-                ><br />
-                <span>该操作将删除该订单所有数据,确定要删除吗？</span>
-                <span slot="footer" class="dialog-footer">
-                  <el-button @click="centerDialogVisible = false"
-                    >取 消</el-button
-                  >
-                  <el-button
-                    type="primary"
-                    @click="(centerDialogVisible = false), open1()"
-                    >确 定</el-button
-                  >
-                </span>
-              </el-dialog>
-
-              <el-button plain style="margin-left: 10px"
-                ><i class="el-icon-refresh-right"></i>刷新</el-button
-              >
+          
               <el-button plain><i class="el-icon-upload2"></i>导出</el-button>
             </div>
           </div>
@@ -137,17 +95,12 @@
             </el-table-column>
             <el-table-column prop="can" label="产品" width="80">
             </el-table-column>
-            <el-table-column prop="address" label="地址" show-overflow-tooltip>
+            <el-table-column prop="address" label="原库位" show-overflow-tooltip>
             </el-table-column>
-            <el-table-column prop="address" label="地址" show-overflow-tooltip>
-               <Chakan></Chakan>
-                <router-link to="../Bianyi" tag="span"
-                  ><el-button type="text" size="small"
-                    ><i class="el-icon-edit"></i>编辑</el-button
-                  ></router-link
-                >
+             <el-table-column prop="cku" label="目标仓库" show-overflow-tooltip>
             </el-table-column>
-            
+             <el-table-column prop="kuwei" label="目标库位" show-overflow-tooltip>
+            </el-table-column>
           </el-table>
           <div style="margin-top: 20px; float: left">
             <el-button @click="toggleSelection([tableData[1], tableData[2]])"
@@ -190,6 +143,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
+    name:'changkuzhandan',
   components: {
     Header,
     Gaojishous,
@@ -236,10 +190,12 @@ export default {
           gueige: "默认真是",
           date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+             chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -248,13 +204,14 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-02",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+            chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -263,13 +220,14 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-04",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+             chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -278,13 +236,14 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-01",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+             chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -293,13 +252,14 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-08",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+             chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -308,13 +268,14 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-06",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
         {
-          chanpin: "设备箱",
+              chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
           pinsi: "201518",
@@ -323,10 +284,11 @@ export default {
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-07",
+          date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "默认报损库位",
+          cku:"3号仓库",
+          kuwei:"kuwei"
         },
       ],
       multipleSelection: [],
