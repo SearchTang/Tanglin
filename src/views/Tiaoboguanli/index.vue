@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="移库管理"></Header>
+    <Header fuchuanzi="调拨管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,7 +13,7 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>出库单号:</span></div>
+            <div class="shi1-2"><span>调拨单号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
@@ -58,14 +58,14 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzhengyiku" tag="span" class="yi">                                   
+              <router-link to="../Xingzhengtiaobo" tag="span" class="yi">                                   
                 <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
                   >新增</el-button
                 >
               </router-link>
 
-              <router-link to="../Bianyiyiku" tag="span" class="yi">
+              <router-link to="../Bianyitiaobo" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
                   >编译</el-button
@@ -141,7 +141,7 @@
             </el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip>
                <Chakan></Chakan>
-                <router-link to="../Bianyiyiku" tag="span"
+                <router-link to="../Bianyitiaobo" tag="span"
                   ><el-button type="text" size="small"
                     ><i class="el-icon-edit"></i>编辑</el-button
                   ></router-link
@@ -190,7 +190,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
-    name:'chukuguanli',
+    name:'Tiaoboguanli',
   components: {
     Header,
     Gaojishous,

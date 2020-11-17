@@ -33,16 +33,16 @@
         </el-menu-item-group>
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>盘点掉盘管理</template>
-          <el-menu-item index="2-5">报损管理</el-menu-item>
-          <el-menu-item index="2-6">盘点管理</el-menu-item>
-          <el-menu-item index="2-7">调拔管理</el-menu-item>
+          <el-menu-item index="2-5"><router-link to="../Baosuenguanli" tag="div">报损管理</router-link></el-menu-item>
+          <el-menu-item index="2-6"><router-link to="../Pandianguanli" tag="div">盘点管理</router-link></el-menu-item>
+          <el-menu-item index="2-7"><router-link to="../Tiaoboguanli" tag="div">调拨管理</router-link></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title"><i class="el-icon-setting"></i>业务管理</template>
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>采购销售管理</template>
-          <el-menu-item index="3-1">采购管理</el-menu-item>
+          <el-menu-item index="3-1"><router-link to="../Caigouguanli" tag="div">采购管理</router-link></el-menu-item>
           <el-menu-item index="3-2">采购退货</el-menu-item>
           <el-menu-item index="3-3">销售管理</el-menu-item>
           <el-menu-item index="3-4">销售退货</el-menu-item>

@@ -41,6 +41,31 @@ export default new Router({
           component:()=>import('./views/Xingzhengpandian')
         },
         {
+          path:'/Xingzhengbaoshuen',
+          name:'xingzhengbaoshuen',
+          component:()=>import('./views/Xingzhengbaoshuen')
+        },
+        {
+          path:'/Xingzhengyiku',
+          name:'xingzhengyiku',
+          component:()=>import('./views/Xingzhengyiku')
+        },
+        {
+          path:'/Xingzhengpandianguanli',
+          name:'xingzhengpandianguanli',
+          component:()=>import('./views/Xingzhengpandianguanli')
+        },
+        {
+          path:'/Xingzhengtiaobo',
+          name:'xingzhengtiaobo',
+          component:()=>import('./views/Xingzhengtiaobo')
+        },
+        {
+          path:'/Xingzhengcaigoudan',
+          name:'Xingzhengcaigoudan',
+          component:()=>import('./views/Xingzhengcaigoudan')
+        },
+        {
           path:'/Bianyi',
           name:'bianyi',
           component:()=>import('./views/Bianyi')
@@ -54,6 +79,31 @@ export default new Router({
           path:'/Bianyipandian',
           name:'bianyipandian',
           component:()=>import('./views/Bianyipandian')
+        },
+        {
+          path:'/Bianyiyiku',
+          name:'bianyiyiku',
+          component:()=>import('./views/Bianyiyiku')
+        },
+        {
+          path:'/Bianyibaoshuen',
+          name:'bianyibaoshuen',
+          component:()=>import('./views/Bianyibaoshuen')
+        },
+        {
+          path:'/Bianyipandiandan',
+          name:'bianyipandiandan',
+          component:()=>import('./views/Bianyipandiandan')
+        },
+        {
+          path:'/Bianyicaigouguanli',
+          name:'bianyicaigouguanli',
+          component:()=>import('./views/Bianyicaigouguanli')
+        },
+        {
+          path:'/Bianyitiaobo',
+          name:'bianyitiaobo',
+          component:()=>import('./views/Bianyitiaobo')
         },
         {
           path:'/Contentluku',
@@ -95,7 +145,26 @@ export default new Router({
           name:'yikuguanli',
           component:()=>import('./views/Yikuguanli')
         },
-       
+        {
+          path:'/Baosuenguanli',
+          name:'baosuenguanli',
+          component:()=>import('./views/Baosuenguanli')
+        },
+        {
+          path:'/Pandianguanli',
+          name:'pandianguanli',
+          component:()=>import('./views/Pandianguanli')
+        },
+        {
+          path:'/Tiaoboguanli',
+          name:'tiaoboguanli',
+          component:()=>import('./views/Tiaoboguanli')
+        },
+        {
+          path:'/Caigouguanli',
+          name:'caigouguanli',
+          component:()=>import('./views/Caigouguanli')
+        },
        
         {
           path:'/Main',
