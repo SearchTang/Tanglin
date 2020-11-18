@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="盘点管理"></Header>
+    <Header fuchuanzi="销售管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,13 +13,13 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>盘点单号:</span></div>
+            <div class="shi1-2"><span>销售订单:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
           </div>
           <div class="shi1">
-            <div class="shi1-2"><span>单据类型:</span></div>
+            <div class="shi1-2"><span>产品编号:</span></div>
             <div class="shi1-1">
               <el-select v-model="value" placeholder="请选择">
                 <el-option
@@ -34,7 +34,7 @@
           </div>
 
           <div class="shi1">
-            <div class="shi1-2"><span>出库状态:</span></div>
+            <div class="shi1-2"><span>订单状态:</span></div>
             <div class="shi1-1">
               <el-select v-model="value1" placeholder="请选择">
                 <el-option
@@ -58,14 +58,14 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzhengpandianguanli" tag="span" class="yi">                                   
+              <router-link to="../Xingzhengxiaoshoudingdan" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
                   >新增</el-button
                 >
               </router-link>
 
-              <router-link to="../Bianyipandiandan" tag="span" class="yi">
+              <router-link to="../Bianyixiaoshou" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
                   >编译</el-button
@@ -139,15 +139,18 @@
             </el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip>
             </el-table-column>
+           <el-table-column prop="shifo" label="是否入账" show-overflow-tooltip>
+            </el-table-column>
+            <el-table-column prop="tuihu" label="退货" show-overflow-tooltip>
+            </el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip>
                <Chakan></Chakan>
-                <router-link to="../Bianyipandiandan" tag="span"
+                <router-link to="../Bianyicaigouguanli" tag="span"
                   ><el-button type="text" size="small"
                     ><i class="el-icon-edit"></i>编辑</el-button
                   ></router-link
                 >
             </el-table-column>
-            
           </el-table>
           <div style="margin-top: 20px; float: left">
             <el-button @click="toggleSelection([tableData[1], tableData[2]])"
@@ -190,7 +193,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
-    name:'pandianguanli',
+    name:'xiaoshouguanli',
   components: {
     Header,
     Gaojishous,
@@ -226,101 +229,121 @@ export default {
       value1: "",
       tableData: [
         {
+            shifo:"是",
+            tuihu:"退",
           chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
           date: "2016-05-03",
-          name: "刘晓雯",
+          name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
+            shifo:"是",
+           
           chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
+          can: "设备库",
+          date: "2016-05-02",
+          name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-         chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-         chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-        chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
+            shifo:"是",
+            tuihu:"退",
           chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
+          can: "设备库",
+          date: "2016-05-04",
+          name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
+            shifo:"是",
+            tuihu:"退",
           chanpin: "设备箱",
-          dindan: "OS_0001",
-          chanpinbianhao: "000179",
-          pinsi: "20190518",
-          gueige: "个",
-          can: "121",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
           shulian: "30004",
           kuc: "100",
           gueige: "默认真是",
-          date: "2016-05-03",
-          name: "刘晓雯",
+          can: "设备库",
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+            shifo:"是",
+           
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-08",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+            shifo:"是",
+           
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-06",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+            shifo:"是",
+            tuihu:"退",
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-07",
+          name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
       ],
@@ -444,6 +467,7 @@ export default {
   margin: 0px auto;
   border: 1px solid #eaebeb;
 }
+
 .xiaban {
   width: 100%;
   border: 1px solid #eaebeb;
@@ -469,4 +493,5 @@ export default {
   margin-bottom: 10px;
   display: inline-block;
 }
+
 </style>

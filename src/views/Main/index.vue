@@ -43,9 +43,9 @@
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>采购销售管理</template>
           <el-menu-item index="3-1"><router-link to="../Caigouguanli" tag="div">采购管理</router-link></el-menu-item>
-          <el-menu-item index="3-2">采购退货</el-menu-item>
-          <el-menu-item index="3-3">销售管理</el-menu-item>
-          <el-menu-item index="3-4">销售退货</el-menu-item>
+          <el-menu-item index="3-2"><router-link to="../Caigoutueihuo" tag="div">采购退货</router-link></el-menu-item>
+          <el-menu-item index="3-3"><router-link to="../Xiaoshouguanli" tag="div">销售管理</router-link></el-menu-item>
+          <el-menu-item index="3-4"><router-link to="../Xiaoshoutueihuo" tag="div">销售退货</router-link></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
 
@@ -53,7 +53,7 @@
         <template slot="title"><i class="el-icon-setting"></i>财务管理</template>
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>财务数据</template>
-          <el-menu-item index="4-1">财务类别</el-menu-item>
+          <el-menu-item index="4-1"><router-link to="../Caiwuliebiao" tag="div">财务类别</router-link></el-menu-item>
           <el-menu-item index="4-2">应收管理</el-menu-item>
           <el-menu-item index="4-3">应付管理</el-menu-item>
           <el-menu-item index="4-4">财务记账</el-menu-item>

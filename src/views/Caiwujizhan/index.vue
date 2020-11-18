@@ -58,9 +58,6 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-          
-
-          
               <el-button plain><i class="el-icon-upload2"></i>导出</el-button>
             </div>
           </div>

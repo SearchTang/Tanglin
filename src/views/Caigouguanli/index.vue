@@ -395,6 +395,24 @@ export default {
 };
 </script>
 <style scoped>
+.xiaban>>>.el-table--enable-row-transition .el-table__body td {
+    text-align: center;
+    border: 1px solid #ebebeb;
+    -webkit-transition: background-color .25s ease;
+    transition: background-color .25s ease;
+}
+.xiaban>>>.el-table th>.cell {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 10px;
+    text-align: center;
+    /* border: 1px solid; */
+    padding-right: 10px;
+    width: 100%;
+}
 .yi {
   margin-right: 10px;
 }
@@ -449,6 +467,7 @@ export default {
   margin: 0px auto;
   border: 1px solid #eaebeb;
 }
+
 .xiaban {
   width: 100%;
   border: 1px solid #eaebeb;
@@ -474,4 +493,5 @@ export default {
   margin-bottom: 10px;
   display: inline-block;
 }
+
 </style>

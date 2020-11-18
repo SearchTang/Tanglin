@@ -1,6 +1,6 @@
 <template>
   <span class="li">
-        <el-button type="text" @click="dialogTableVisible = true">查看</el-button>
+        <el-button type="text" @click="dialogTableVisible = true"><span style="font-size: 12px;">查看</span></el-button>
 <el-dialog title="入库单详情" :visible.sync="dialogTableVisible">
    <el-row class="stl">
         <el-col :span="8" class="stll"><span>入库单号：</span><span>RKD441682E9D0767</span></el-col>
