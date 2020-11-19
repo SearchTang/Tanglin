@@ -1,7 +1,7 @@
 
 <template>
 <span class="tai">
-    <span type="text" @click="dialogVisible = true">编译</span>
+    <span type="text" @click="dialogVisible = true" class="bian">编译</span>
 <el-dialog
   title="编译类别"
   :visible.sync="dialogVisible"
@@ -58,6 +58,9 @@
   };
 </script>
 <style scoped>
+.bian{
+  cursor: pointer;
+}
 .tai>>>.el-dialog__header {
     padding: 20px 20px 10px;
     text-align: left;

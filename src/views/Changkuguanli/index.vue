@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="财务类别"></Header>
+    <Header fuchuanzi="仓库管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,9 +13,38 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>类别名称:</span></div>
+            <div class="shi1-2"><span>编号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
+            </div>
+          </div>
+          <div class="shi1">
+            <div class="shi1-2"><span>仓库名称:</span></div>
+            <div class="shi1-1">
+              <el-select v-model="value" placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </div>
+          </div>
+
+          <div class="shi1">
+            <div class="shi1-2"><span>仓库类型:</span></div>
+            <div class="shi1-1">
+              <el-select v-model="value1" placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
             </div>
           </div>
 
@@ -29,18 +58,19 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-             
-                <el-button plain style="margin-right: 10px;"
+              <router-link to="../Xingzhengchangku" tag="span" class="yi">
+                <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
-                  ><Xingzhengdueihuakuan></Xingzhengdueihuakuan></el-button
+                  >新增</el-button
                 >
-        
-             
+              </router-link>
+
+              <router-link to="../Bianyi" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
-                  ><Bianyicaiwu></Bianyicaiwu></el-button
+                  >编译</el-button
                 >
-         
+              </router-link>
 
               <el-button plain @click="centerDialogVisible = true"
                 ><i class="el-icon-delete-solid" style="font-weight: 900"></i
@@ -85,17 +115,39 @@
             @selection-change="handleSelectionChange"
           >
             <el-table-column type="selection" width="55"> </el-table-column>
-            <el-table-column prop="dindan" label="类别编号" width="200">
-            </el-table-column>
-            <el-table-column prop="dindan" label="类别名称" width="700">
-            </el-table-column>
-            <el-table-column label="创建时间" width="220">
+            <el-table-column label="日期" width="120">
               <template slot-scope="scope">{{ scope.row.date }}</template>
             </el-table-column>
-            <el-table-column prop="address" label="操作" show-overflow-tooltip>
-               <span><i class="el-icon-edit"></i><Chakan></Chakan></span>
-               <span><i class="el-icon-s-fold"></i><Bianyicaiwu></Bianyicaiwu></span>
+            <el-table-column prop="dindan" label="订单号" width="100">
             </el-table-column>
+            <el-table-column prop="chanpin" label="产品名称" width="100">
+            </el-table-column>
+            <el-table-column prop="chanpinbianhao" label="产品编号" width="100">
+            </el-table-column>
+            <el-table-column prop="pinsi" label="批次" width="80">
+            </el-table-column>
+            <el-table-column prop="gueige" label="规格" width="80">
+            </el-table-column>
+            <el-table-column prop="shulian" label="数量" width="80">
+            </el-table-column>
+            <el-table-column prop="kuc" label="库位" width="80">
+            </el-table-column>
+
+            <el-table-column prop="name" label="姓名" width="80">
+            </el-table-column>
+            <el-table-column prop="can" label="产品" width="80">
+            </el-table-column>
+            <el-table-column prop="address" label="地址" show-overflow-tooltip>
+            </el-table-column>
+            <el-table-column prop="address" label="地址" show-overflow-tooltip>
+               <Chakan></Chakan>
+                <router-link to="../Bianyi" tag="span"
+                  ><el-button type="text" size="small"
+                    ><i class="el-icon-edit"></i>编辑</el-button
+                  ></router-link
+                >
+            </el-table-column>
+            
           </el-table>
           <div style="margin-top: 20px; float: left">
             <el-button @click="toggleSelection([tableData[1], tableData[2]])"
@@ -134,19 +186,15 @@
 </template>
 
 <script>
-import Xingzhengdueihuakuan from "../../components/Xingzhengdueihuakuan";
 import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
-import Bianyicaiwu from "../../components/Bianyicaiwu";
 export default {
-    name:'bianyicaiwu',
+    name:"Changkuguanli",
   components: {
     Header,
     Gaojishous,
-    Chakan,
-    Xingzhengdueihuakuan,
-    Bianyicaiwu
+    Chakan
   },
   data() {
     return {
@@ -178,8 +226,6 @@ export default {
       value1: "",
       tableData: [
         {
-            shifo:"是",
-            tuihu:"退",
           chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
@@ -194,8 +240,6 @@ export default {
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-            shifo:"是",
-           
           chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
@@ -211,8 +255,6 @@ export default {
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-            shifo:"是",
-            tuihu:"退",
           chanpin: "设备箱",
           dindan: "RKD11",
           chanpinbianhao: "00184",
@@ -227,8 +269,66 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
-      
-     
+        {
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-08",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-06",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          chanpin: "设备箱",
+          dindan: "RKD11",
+          chanpinbianhao: "00184",
+          pinsi: "201518",
+          gueige: "台",
+          can: "设备库",
+          shulian: "30004",
+          kuc: "100",
+          gueige: "默认真是",
+          can: "设备库",
+          date: "2016-05-07",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
       ],
       multipleSelection: [],
     };
@@ -278,24 +378,6 @@ export default {
 };
 </script>
 <style scoped>
-.xiaban>>>.el-table--enable-row-transition .el-table__body td {
-    text-align: center;
-    border: 1px solid #ebebeb;
-    -webkit-transition: background-color .25s ease;
-    transition: background-color .25s ease;
-}
-.xiaban>>>.el-table th>.cell {
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    position: relative;
-    vertical-align: middle;
-    padding-left: 10px;
-    text-align: center;
-    /* border: 1px solid; */
-    padding-right: 10px;
-    width: 100%;
-}
 .yi {
   margin-right: 10px;
 }
@@ -350,15 +432,13 @@ export default {
   margin: 0px auto;
   border: 1px solid #eaebeb;
 }
-
 .xiaban {
   width: 100%;
   border: 1px solid #eaebeb;
 }
 .neir {
-      width: 100%;
-    height: 70px;
-    margin-top: 20px;
+  width: 100%;
+  height: 70px;
 }
 .neirr1 {
   font-weight: 700;
@@ -377,10 +457,22 @@ export default {
   margin-bottom: 10px;
   display: inline-block;
 }
-.zhenti>>>.el-table .cell.el-tooltip {
-    white-space: nowrap;
-    font-size: 13px;
-    min-width: 50px;
-    color: #328eed;
+.xiaban>>>.el-table--enable-row-transition .el-table__body td {
+    text-align: center;
+    border: 1px solid #ebebeb;
+    -webkit-transition: background-color .25s ease;
+    transition: background-color .25s ease;
+}
+.xiaban>>>.el-table th>.cell {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 10px;
+    text-align: center;
+    /* border: 1px solid; */
+    padding-right: 10px;
+    width: 100%;
 }
 </style>

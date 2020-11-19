@@ -64,14 +64,35 @@
         <template slot="title"><i class="el-icon-setting"></i>报表管理</template>
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>报表数据</template>
-          <el-menu-item index="5-1">库存清单</el-menu-item>
-          <el-menu-item index="5-2">可出库存</el-menu-item>
-          <el-menu-item index="5-3">期初期末</el-menu-item>
-          <el-menu-item index="5-4">库存台账</el-menu-item>
-          <el-menu-item index="5-5">库存预警</el-menu-item>
-          <el-menu-item index="5-6">库存容量</el-menu-item>
-        </el-menu-item-group>
+          <el-menu-item index="5-1"><router-link to="../Kuchuenqingdian" tag="div">库存清单</router-link></el-menu-item>
+          <el-menu-item index="5-2"><router-link to="../Kechukucuen" tag="div">可出库存</router-link></el-menu-item>
+          <el-menu-item index="5-3"><router-link to="../Qichuqimo" tag="div">期初期末</router-link></el-menu-item>
+          <el-menu-item index="5-4"><router-link to="../Kuchuangtaizhang" tag="div">库存台账</router-link></el-menu-item>
+          <el-menu-item index="5-5"><router-link to="../Kuchuanyujing" tag="div">库存预警</router-link></el-menu-item>
+          <el-menu-item index="5-6"><router-link to="../Kuchuangrlian" tag="div">库存容量</router-link></el-menu-item>
+        </el-menu-item-group> 
       </el-submenu>
+
+
+       <el-submenu index="6">
+        <template slot="title"><i class="el-icon-setting"></i>基础材料</template>
+        <el-menu-item-group>
+          <template slot="title"><i class="el-icon-c-scale-to-original"></i>仓库资料</template>
+          <el-menu-item index="6-1"><router-link to="../Changkuguanli" tag="div">仓库管理</router-link></el-menu-item>
+          <el-menu-item index="6-2"><router-link to="../Kechukucuen" tag="div">库位管理</router-link></el-menu-item>
+          <el-menu-item index="6-3"><router-link to="../Qichuqimo" tag="div">设备管理</router-link></el-menu-item>
+          <el-menu-item index="6-4"><router-link to="../Kuchuangtaizhang" tag="div">计量单位</router-link></el-menu-item>
+        </el-menu-item-group> 
+         <el-menu-item-group>
+          <template slot="title"><i class="el-icon-c-scale-to-original"></i>供应商资料</template>
+          <el-menu-item index="6-5"><router-link to="../Kuchuenqingdian" tag="div">供应商管理</router-link></el-menu-item>
+          <el-menu-item index="6-6"><router-link to="../Kechukucuen" tag="div">客户管理</router-link></el-menu-item>
+          <el-menu-item index="6-7"><router-link to="../Qichuqimo" tag="div">产品类别</router-link></el-menu-item>
+          <el-menu-item index="6-8"><router-link to="../Kuchuangtaizhang" tag="div">产品管理</router-link></el-menu-item>
+          <el-menu-item index="6-9"><router-link to="../Kuchuangtaizhang" tag="div">承运商管理</router-link></el-menu-item>
+        </el-menu-item-group> 
+      </el-submenu>
+
     </el-menu>
   </el-aside>
   

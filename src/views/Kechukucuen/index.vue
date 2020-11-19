@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="财务类别"></Header>
+    <Header fuchuanzi="可出库存"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,11 +13,27 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>类别名称:</span></div>
+            <div class="shi1-2"><span>产品编号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
           </div>
+          <div class="shi1">
+            <div class="shi1-2"><span>产品名称:</span></div>
+            <div class="shi1-1">
+              <el-select v-model="value" placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </div>
+          </div>
+
+         
 
           <div class="shi1">
             <el-button type="primary" icon="el-icon-search">搜索</el-button>
@@ -29,50 +45,6 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-             
-                <el-button plain style="margin-right: 10px;"
-                  ><i class="el-icon-plus" style="font-weight: 900"></i
-                  ><Xingzhengdueihuakuan></Xingzhengdueihuakuan></el-button
-                >
-        
-             
-                <el-button plain
-                  ><i class="el-icon-edit" style="font-weight: 900"></i
-                  ><Bianyicaiwu></Bianyicaiwu></el-button
-                >
-         
-
-              <el-button plain @click="centerDialogVisible = true"
-                ><i class="el-icon-delete-solid" style="font-weight: 900"></i
-                >删除</el-button
-              >
-
-              <el-dialog
-                title="确定删除"
-                :visible.sync="centerDialogVisible"
-                width="30%"
-                left
-              >
-                <img src="../../assets/登入img/tubiao.png" />
-                <span class="daxiao"
-                  >该操作将删除该订单所有数据,确定要删除吗？</span
-                ><br />
-                <span>该操作将删除该订单所有数据,确定要删除吗？</span>
-                <span slot="footer" class="dialog-footer">
-                  <el-button @click="centerDialogVisible = false"
-                    >取 消</el-button
-                  >
-                  <el-button
-                    type="primary"
-                    @click="(centerDialogVisible = false), open1()"
-                    >确 定</el-button
-                  >
-                </span>
-              </el-dialog>
-
-              <el-button plain style="margin-left: 10px"
-                ><i class="el-icon-refresh-right"></i>刷新</el-button
-              >
               <el-button plain><i class="el-icon-upload2"></i>导出</el-button>
             </div>
           </div>
@@ -84,17 +56,21 @@
             style="width: 100%"
             @selection-change="handleSelectionChange"
           >
-            <el-table-column type="selection" width="55"> </el-table-column>
-            <el-table-column prop="dindan" label="类别编号" width="200">
+            <el-table-column prop="dindan" label="序号" width="100">
             </el-table-column>
-            <el-table-column prop="dindan" label="类别名称" width="700">
+            <el-table-column prop="chanpin" label="产品编号" width="200">
             </el-table-column>
-            <el-table-column label="创建时间" width="220">
-              <template slot-scope="scope">{{ scope.row.date }}</template>
+            <el-table-column prop="chanpinbianhao" label="产品名称" width="300">
             </el-table-column>
-            <el-table-column prop="address" label="操作" show-overflow-tooltip>
-               <span><i class="el-icon-edit"></i><Chakan></Chakan></span>
-               <span><i class="el-icon-s-fold"></i><Bianyicaiwu></Bianyicaiwu></span>
+            <el-table-column prop="pinsi" label="产品规格" width="80">
+            </el-table-column>
+            <el-table-column prop="gueige" label="类别" width="200">
+            </el-table-column>
+            <el-table-column prop="shulian" label="存储单位" width="200">
+            </el-table-column>
+            <el-table-column prop="kuc" label="仓库" width="200">
+            </el-table-column>
+            <el-table-column prop="name" label="库位" width="200">
             </el-table-column>
           </el-table>
           <div style="margin-top: 20px; float: left">
@@ -134,19 +110,17 @@
 </template>
 
 <script>
-import Xingzhengdueihuakuan from "../../components/Xingzhengdueihuakuan";
+import Queren from '../../components/Queren';
 import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
-import Bianyicaiwu from "../../components/Bianyicaiwu";
 export default {
-    name:'bianyicaiwu',
+    name:'Kechukucuen',
   components: {
     Header,
     Gaojishous,
     Chakan,
-    Xingzhengdueihuakuan,
-    Bianyicaiwu
+    Queren
   },
   data() {
     return {
@@ -178,57 +152,77 @@ export default {
       value1: "",
       tableData: [
         {
-            shifo:"是",
-            tuihu:"退",
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-            shifo:"是",
            
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          dindan: "1",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        
         },
         {
-            shifo:"是",
-            tuihu:"退",
-          chanpin: "设备箱",
-          dindan: "RKD11",
-          chanpinbianhao: "00184",
-          pinsi: "201518",
-          gueige: "台",
-          can: "设备库",
-          shulian: "30004",
-          kuc: "100",
-          gueige: "默认真是",
-          can: "设备库",
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+           dindan: "2",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
         },
-      
-     
+        {
+          dindan: "3",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        },
+        {
+           dindan: "x",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        },
+        {
+         dindan: "x",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        },
+        {
+          dindan: "x",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        },
+        {
+          dindan: "x",
+          chanpin:"000189",
+          chanpinbianhao:"25-10000 汉贝克移动电源",
+          pinsi:"个",
+          gueige:"移动电源",
+          shulian:"个",
+          kuc:"3号仓库",
+          name:"默认报损库位"
+        },
       ],
       multipleSelection: [],
     };
@@ -356,9 +350,9 @@ export default {
   border: 1px solid #eaebeb;
 }
 .neir {
-      width: 100%;
-    height: 70px;
-    margin-top: 20px;
+  width: 100%;
+  height: 70px;
+  margin-top: 20px;
 }
 .neirr1 {
   font-weight: 700;
@@ -377,10 +371,5 @@ export default {
   margin-bottom: 10px;
   display: inline-block;
 }
-.zhenti>>>.el-table .cell.el-tooltip {
-    white-space: nowrap;
-    font-size: 13px;
-    min-width: 50px;
-    color: #328eed;
-}
+
 </style>

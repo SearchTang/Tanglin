@@ -71,6 +71,11 @@ export default new Router({
           component:()=>import('./views/Xingzhengxiaoshoudingdan')
         },
         {
+          path:'/Xingzhengchangku',
+          name:'xingzhengchangku',
+          component:()=>import('./views/Xingzhengchangku')
+        },
+        {
           path:'/Bianyi',
           name:'bianyi',
           component:()=>import('./views/Bianyi')
@@ -191,11 +196,45 @@ export default new Router({
           component:()=>import('./views/Xiaoshoutueihuo')
         },
         {
-          path:'/Caiwuliebiao',
-          name:'caiwuliebiao',
-          component:()=>import('./views/Caiwuliebiao')
+          path:'/Xiaoshoutueihuo',
+          name:'xiaoshoutueihuo',
+          component:()=>import('./views/Xiaoshoutueihuo')
         },
-       
+        {
+          path:'/Kuchuenqingdian',
+          name:'kuchuenqingdian',
+          component:()=>import('./views/Kuchuenqingdian')
+        },
+        {
+          path:'/Kechukucuen',
+          name:'kechukucuen',
+          component:()=>import('./views/Kechukucuen')
+        },
+        {
+          path:'/Qichuqimo',
+          name:'qichuqimo',
+          component:()=>import('./views/Qichuqimo')
+        },
+        {
+          path:'/Kuchuangtaizhang',
+          name:'kuchuangtaizhang',
+          component:()=>import('./views/Kuchuangtaizhang')
+        },
+        {
+          path:'/Kuchuanyujing',
+          name:'kuchuanyujing',
+          component:()=>import('./views/Kuchuanyujing')
+        },
+        {
+          path:'/Kuchuangrlian',
+          name:'Kuchuangrlian',
+          component:()=>import('./views/Kuchuangrlian')
+        },
+        {
+          path:'/Changkuguanli',
+          name:'changkuguanli',
+          component:()=>import('./views/Changkuguanli')
+        },
        
         {
           path:'/Main',
