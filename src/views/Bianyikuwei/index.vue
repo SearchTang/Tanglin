@@ -1,11 +1,11 @@
 <template>
   <el-container>
-    <Header fuchuanzi="新增仓库"></Header>
+    <Header fuchuanzi="编译库位"></Header>
 
     <el-main style="margin-top: 50px">
       <div class="shangban">
         <div>
-          <span>新建仓库</span
+          <span>编译库位</span
           ><span
             ><span style="color: #b8b8b8; font-size: 15px"
               ><span style="color: red">*</span>为必填项</span
@@ -17,14 +17,14 @@
       <div class="neir">
         <el-row class="tiao">
              <el-col :span="11">
-                <p class="ziti">仓库编号：</p>
+                <p class="ziti">库位编号：</p>
             <el-input
               v-model="input"
               placeholder="1号仓库"
             ></el-input>
              </el-col>
              <el-col :span="11" :offset="2">
-               <p class="ziti"><span style="color: red">* </span>仓库类型：</p>
+               <p class="ziti"><span style="color: red"></span>库位类型：</p>
              <el-select v-model="value" placeholder="请选择">
     <el-option
       v-for="item in options1"
@@ -63,45 +63,15 @@
 
          <el-row class="tiao">
              <el-col :span="11">
-                <p class="ziti">作用：</p>
-            <el-input
-              v-model="input"
-              placeholder="请输入商务"
-            ></el-input>
+               
+            <span class="tia1">是否默认：</span><el-checkbox v-model="checked"></el-checkbox>
              </el-col>
              <el-col :span="11" :offset="2">
-               <p class="ziti"><span style="color: red"> </span>租赁时间：</p>
-            <el-input v-model="input" placeholder="130130130013"></el-input>
+            <span class="tia1">是否禁用：</span><el-checkbox v-model="checked1" disabled></el-checkbox>
              </el-col>
         </el-row>
 
-         <el-row class="tiao">
-             <el-col :span="11">
-                <p class="ziti">面积：</p>
-            <el-input
-              v-model="input"
-              placeholder="1300"
-            ></el-input>
-             </el-col>
-             <el-col :span="11" :offset="2">
-               <p class="ziti"><span style="color: red"></span>地址：</p>
-            <el-input v-model="input" placeholder="请选供应商内容"></el-input>
-             </el-col>
-        </el-row>
-
-         <el-row class="tiao">
-             <el-col :span="11">
-                <p class="ziti">联系人：</p>
-            <el-input
-              v-model="input"
-              placeholder="李旭阳"
-            ></el-input>
-             </el-col>
-             <el-col :span="11" :offset="2">
-               <p class="ziti"><span style="color: red">* </span>电话：</p>
-            <el-input v-model="input" placeholder="130130130013"></el-input>
-             </el-col>
-        </el-row>
+       
 
        
       </div>
@@ -116,13 +86,15 @@
 import Xingzhen from "../../components/Xingzhen"
 import Header from "../../components/Header";
 export default {
-    name:'xingzhengchangku',
+    name:'bianyikuwei',
   components: {
     Header,
     Xingzhen
   },
   data() {
     return {
+         checked: true,
+         checked1: false,
          textarea: '',
       options: [
         {
@@ -207,6 +179,15 @@ export default {
 }
 .ziti{
       font-family: 微软雅黑;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    line-height: 28px;
+        font-size: 14px;
+    color: #666666;
+}
+.tia1{
+        font-family: 微软雅黑;
     font-weight: 400;
     font-style: normal;
     text-align: left;

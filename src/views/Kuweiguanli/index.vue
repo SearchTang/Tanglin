@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="仓库管理"></Header>
+    <Header fuchuanzi="库位管理"></Header>
     <el-main style="margin-top: 50px">
       <div class="zhenti">
         <div class="shangban">
@@ -13,13 +13,13 @@
         </div>
         <div class="shangban1">
           <div class="shi1">
-            <div class="shi1-2"><span>编号:</span></div>
+            <div class="shi1-2"><span>库位编号:</span></div>
             <div class="shi1-1">
               <el-input v-model="input" placeholder="请输入内容"></el-input>
             </div>
           </div>
           <div class="shi1">
-            <div class="shi1-2"><span>仓库名称:</span></div>
+            <div class="shi1-2"><span>库位名称:</span></div>
             <div class="shi1-1">
               <el-select v-model="value" placeholder="请选择">
                 <el-option
@@ -34,7 +34,7 @@
           </div>
 
           <div class="shi1">
-            <div class="shi1-2"><span>仓库类型:</span></div>
+            <div class="shi1-2"><span>仓库:</span></div>
             <div class="shi1-1">
               <el-select v-model="value1" placeholder="请选择">
                 <el-option
@@ -58,14 +58,14 @@
           <div class="neir">
             <div class="neirr1">数据列表</div>
             <div class="neirr2">
-              <router-link to="../Xingzhengchangku" tag="span" class="yi">
+              <router-link to="../Xingzhengkuwei" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-plus" style="font-weight: 900"></i
                   >新增</el-button
                 >
               </router-link>
 
-              <router-link to="../Bianyichangku" tag="span" class="yi">
+              <router-link to="../Bianyikuwei" tag="span" class="yi">
                 <el-button plain
                   ><i class="el-icon-edit" style="font-weight: 900"></i
                   >编译</el-button
@@ -190,7 +190,7 @@ import Header from "../../components/Header";
 import Chakan from "../../components/Chakan"
 import Gaojishous from "../../components/Gaojishous"
 export default {
-    name:"Changkuguanli",
+    name:"Kuweiguanli",
   components: {
     Header,
     Gaojishous,

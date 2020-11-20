@@ -79,8 +79,8 @@
         <el-menu-item-group>
           <template slot="title"><i class="el-icon-c-scale-to-original"></i>仓库资料</template>
           <el-menu-item index="6-1"><router-link to="../Changkuguanli" tag="div">仓库管理</router-link></el-menu-item>
-          <el-menu-item index="6-2"><router-link to="../Kechukucuen" tag="div">库位管理</router-link></el-menu-item>
-          <el-menu-item index="6-3"><router-link to="../Qichuqimo" tag="div">设备管理</router-link></el-menu-item>
+          <el-menu-item index="6-2"><router-link to="../Kuweiguanli" tag="div">库位管理</router-link></el-menu-item>
+          <el-menu-item index="6-3"><router-link to="../Shebeiguanli" tag="div">设备管理</router-link></el-menu-item>
           <el-menu-item index="6-4"><router-link to="../Kuchuangtaizhang" tag="div">计量单位</router-link></el-menu-item>
         </el-menu-item-group> 
          <el-menu-item-group>

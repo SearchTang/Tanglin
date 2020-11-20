@@ -76,6 +76,11 @@ export default new Router({
           component:()=>import('./views/Xingzhengchangku')
         },
         {
+          path:'/Xingzhengkuwei',
+          name:'xingzhengkuwei',
+          component:()=>import('./views/Xingzhengkuwei')
+        },
+        {
           path:'/Bianyi',
           name:'bianyi',
           component:()=>import('./views/Bianyi')
@@ -96,6 +101,11 @@ export default new Router({
           component:()=>import('./views/Bianyiyiku')
         },
         {
+          path:'/Bianyikuwei',
+          name:'bianyiyiku',
+          component:()=>import('./views/Bianyikuwei')
+        },
+        {
           path:'/Bianyibaoshuen',
           name:'bianyibaoshuen',
           component:()=>import('./views/Bianyibaoshuen')
@@ -109,6 +119,11 @@ export default new Router({
           path:'/Bianyicaigouguanli',
           name:'bianyicaigouguanli',
           component:()=>import('./views/Bianyicaigouguanli')
+        },
+        {
+          path:'/Bianyichangku',
+          name:'bianyicaigouguanli',
+          component:()=>import('./views/Bianyichangku')
         },
         {
           path:'/Bianyitiaobo',
@@ -235,7 +250,21 @@ export default new Router({
           name:'changkuguanli',
           component:()=>import('./views/Changkuguanli')
         },
-       
+        {
+          path:'/Kuweiguanli',
+          name:'changkuguanli',
+          component:()=>import('./views/Kuweiguanli')
+        },
+        {
+          path:'/Caiwuliebiao',
+          name:'caiwuliebiao',
+          component:()=>import('./views/Caiwuliebiao')
+        },
+        {
+          path:'/Shebeiguanli',
+          name:'shebeiguanli',
+          component:()=>import('./views/Shebeiguanli')
+        },
         {
           path:'/Main',
           redirect:'/Contentshuju'

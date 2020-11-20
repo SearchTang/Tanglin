@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <Header fuchuanzi="新增仓库"></Header>
+    <Header fuchuanzi="新增库位"></Header>
 
     <el-main style="margin-top: 50px">
       <div class="shangban">
@@ -17,14 +17,14 @@
       <div class="neir">
         <el-row class="tiao">
              <el-col :span="11">
-                <p class="ziti">仓库编号：</p>
+                <p class="ziti">库位编号：</p>
             <el-input
               v-model="input"
               placeholder="1号仓库"
             ></el-input>
              </el-col>
              <el-col :span="11" :offset="2">
-               <p class="ziti"><span style="color: red">* </span>仓库类型：</p>
+               <p class="ziti"><span style="color: red"></span>库位类型：</p>
              <el-select v-model="value" placeholder="请选择">
     <el-option
       v-for="item in options1"
@@ -116,7 +116,7 @@
 import Xingzhen from "../../components/Xingzhen"
 import Header from "../../components/Header";
 export default {
-    name:'xingzhengchangku',
+    name:'Xingzhengkuwei',
   components: {
     Header,
     Xingzhen

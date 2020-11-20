@@ -1,11 +1,11 @@
 <template>
   <el-container>
-    <Header fuchuanzi="新增仓库"></Header>
+    <Header fuchuanzi="编译仓库"></Header>
 
     <el-main style="margin-top: 50px">
       <div class="shangban">
         <div>
-          <span>新建仓库</span
+          <span>编译仓库</span
           ><span
             ><span style="color: #b8b8b8; font-size: 15px"
               ><span style="color: red">*</span>为必填项</span
@@ -116,7 +116,7 @@
 import Xingzhen from "../../components/Xingzhen"
 import Header from "../../components/Header";
 export default {
-    name:'xingzhengchangku',
+    name:'Bianyichangku',
   components: {
     Header,
     Xingzhen
